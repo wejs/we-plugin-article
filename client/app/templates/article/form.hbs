@@ -10,8 +10,6 @@
             <label for="about">{{t 'article.form.about.label'}}</label>
             {{we-editor value=record.about style="small" classNames="header-inputs"}}
           </h2>
-
-
           <div class="record-featuredImage">
             {{#unless inputReset}}
               {{image-upload classNames="form-control header-inputs" files=selectedImage}}
