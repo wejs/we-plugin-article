@@ -6,6 +6,8 @@
  *
  */
 
+ var S = require('string');
+
 module.exports = {
   schema: true,
   attributes: {
@@ -21,8 +23,11 @@ module.exports = {
     },
 
     title: {
-      type: 'text',
-      required: true
+      type: 'text'
+    },
+
+    about: {
+      type: 'text'
     },
 
     body: {
@@ -45,14 +50,33 @@ module.exports = {
       required: true
     },
 
+    featuredImage: {
+      model: 'images',
+      via: 'inArticleFeatured'
+    },
+
     images: {
       collection: 'images',
       via: 'inArticle'
     },
 
-    comment: {
+    comments: {
       collection: 'comment',
       via: 'article'
+    },
+
+    category: {
+      collection: 'term',
+      via: 'inArticleCategory',
+      dominant: true,
+      index: true
+    },
+
+    tag: {
+      collection: 'tag',
+      via: 'inArticleTag',
+      dominant: true,
+      index: true
     }
 
   },

@@ -1,0 +1,34 @@
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/core/images/bgs/home-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1>{{t 'articles.title'}}</h1>
+          <hr class="small">
+          <span class="subheading">{{t 'articles.subTitle'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {{#can 'article_create'}}
+        <div>
+          {{#link-to 'articles.create'}}
+            {{t 'article.create'}}
+          {{/link-to}}
+        </div>
+      {{/can}}
+
+      {{render 'articles.list' records}}
+    </div>
+
+    {{partial 'partials/sidebar' }}
+  </div>
+</div>

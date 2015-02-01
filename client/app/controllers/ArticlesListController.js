@@ -1,0 +1,1 @@
+App.ArticlesListController = Ember.ArrayController.extend();
