@@ -33,6 +33,10 @@
     "plugin",
     "sails.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wejs/we-plugin-article.git"
+  },
   "sails": {
     "isHook": true
   }
