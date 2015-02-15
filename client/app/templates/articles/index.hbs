@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-md-8">
       {{#can 'article_create'}}
-        <div>
+        <div class="articles-actions">
           {{#link-to 'articles.create'}}
             {{t 'article.create'}}
           {{/link-to}}
@@ -27,6 +27,15 @@
       {{/can}}
 
       {{render 'articles.list' records}}
+
+      <div class="records-footer">
+        {{#if records.isFulfilled}}
+          <div class="articles-pagination">
+            {{we-pagination currentPage=currentPage totalPages=totalPages maxPagesToDisplay=maxPagesToDisplay }}
+          </div>
+        {{/if}}
+      </div>
+     
     </div>
 
     {{partial 'partials/sidebar' }}

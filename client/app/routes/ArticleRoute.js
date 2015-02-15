@@ -11,12 +11,38 @@ App.Router.map(function() {
 });
 
 App.ArticlesIndexRoute = Ember.Route.extend(App.ResetScrollMixin, {
-  model: function () {
+
+  queryParams: {
+    q: { refreshModel: true },
+    category: { refreshModel: true },
+    sort: { refreshModel: true },
+    skip: { refreshModel: true },
+    limit: { refreshModel: true }
+  },
+
+  model: function (params) {
+    var query = this.buildQuery(params);
+
     return {
       attributes: Ember.get('App.Article.attributes').keys.list,
-      records: this.get('store').find('article')
+      records: this.store.find('article', query)
     };
-  }
+  },
+
+  buildQuery: function(params) {
+    var query = {};
+
+    query.q = params.q;
+    if (params.category && params.category != 'undefined') {
+      query.category = params.category;
+    }
+    //query.skip = (Number(params.currentPage) -1 )* Number(params.limit) ;
+    query.skip = params.skip;
+    query.limit = params.limit;
+    query.sort = params.sort;
+
+    return query;
+  }  
 });
 
 App.ArticlesCreateRoute = Ember.Route.extend(App.ResetScrollMixin, App.AuthenticatedRouteMixin, {

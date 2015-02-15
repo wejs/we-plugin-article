@@ -1,0 +1,42 @@
+<h1 class="page-header">{{t 'articles.title'}}</h1>
+
+<div class="row"> 
+  <div class="col-md-12">
+    <a href="/article/create" class="btn btn-default">
+      <span class="text-primary glyphicon glyphicon-plus"></span> {{t 'article.create'}}
+    </a>
+  </div>
+</div>
+
+{{#each record in records}}
+	<div class="table-responsive">
+	  <table class="table table-bordered table-hover table-striped">
+	    <thead>
+	      <tr>
+	        <th>id</th>
+	        <th>Title</th>
+          <th>Created at</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	          <td>
+  	          {{#link-to 'article' record.id}}
+  	            {{record.id}}
+  	          {{/link-to}}
+	          </td>
+	          <td>
+              {{#link-to 'article' record.id}}
+                {{record.title}}
+              {{/link-to}}
+	          </td>
+	          <td>
+	           {{record.createdAt}}
+	          </td>                   
+	        </tr>
+	    </tbody>
+	  </table>
+	</div>
+{{else}}
+  {{t 'articles.empty'}}
+{{/each}}

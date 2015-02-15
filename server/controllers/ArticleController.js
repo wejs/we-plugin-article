@@ -125,6 +125,69 @@ module.exports = {
         });// </updated>
       });
     });
-  }
+  },
 
+  /**
+   * Find Records
+   *
+   *  get   /:modelIdentity
+   *   *    /:modelIdentity/find
+   *
+   * An API call to find and return model instances from the data adapter
+   * using the specified criteria.  If an id was specified, just the instance
+   * with that unique id will be returned.
+   *
+   * Optional:
+   * @param {Object} where       - the find criteria (passed directly to the ORM)
+   * @param {Integer} limit      - the maximum number of records to send back (useful for pagination)
+   * @param {Integer} skip       - the number of records to skip (useful for pagination)
+   * @param {String} sort        - the order of returned records, e.g. `name ASC` or `age DESC`
+   * @param {String} callback - default jsonp callback param (i.e. the name of the js function returned)
+   */
+
+  find: function findRecords (req, res) {
+    // ignore search string from default sails criteria parser
+    req.options.criteria.blacklist.push('q');
+    // Look up the model
+    var Model = req._sails.models.article;
+    var where = actionUtil.parseCriteria(req) ;
+    // quer search string value
+    var searchString = req.param('q');
+    // Lookup for records that match the specified criteria
+    var query = Model.find()
+    .where( where )
+    .limit( actionUtil.parseLimit(req) )
+    .skip( actionUtil.parseSkip(req) )
+    .sort( actionUtil.parseSort(req) );
+
+    var searchStringQuery = {};
+
+    if ( searchString ) {
+      var searchStringQuery = {
+        or: [
+          { title: searchString },
+          { body: searchString }
+        ]
+      }
+    }
+
+    query.where(searchStringQuery);
+
+    // TODO: .populateEach(req.options);
+    query = actionUtil.populateEach(query, req);
+    query.exec(function found(err, matchingRecords) {
+      if (err) return res.serverError(err);
+
+      Model.count()
+      .where( where )
+      .where( searchStringQuery )
+      .exec(function afterCount(err, count) {
+        if (err) return res.serverError(err);
+
+        res.locals.metadata.count = count;
+
+        res.ok(matchingRecords);
+      });
+    });
+  }
 };
