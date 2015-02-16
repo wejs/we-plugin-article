@@ -7,7 +7,7 @@
         <div class="post-heading">
           <h1>{{record.title}}</h1>
           <h2 class="subheading">{{html record.about}}</h2>
-          <span class="meta">Posted by
+          <span class="meta">{{t 'article.created.by'}}
             {{#link-to 'user' record.creator.id}}
               {{record.creator.displayName}}</a>
             {{/link-to}}

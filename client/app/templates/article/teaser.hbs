@@ -7,11 +7,11 @@
         {{html about}}
     </h3>
   {{/link-to}}
-  <p class="post-meta">Posted by
+  <p class="post-meta">{{t 'article.created.by'}}
     {{#link-to 'user' creator.id}}
       {{creator.displayName}}</a>
     {{/link-to}}
-    {{createdAt}}
+    - {{date createdAt}}
   </p>
 </div>
 <hr>

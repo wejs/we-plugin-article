@@ -30,3 +30,21 @@ App.ArticlesCreateRoute = Ember.Route.extend({
     this.currentModel.record.deleteRecord();
   }
 });
+
+App.ArticleRoute = Ember.Route.extend({
+  model: function (params) {
+    return {
+      attributes: Ember.get('App.Article.attributes').keys.list,
+      record: this.get('store').find('article', params.id)
+    };
+  }
+});
+
+App.ArticleIndexRoute = Ember.Route.extend({
+  model: function (params) {
+    return {
+      attributes: Ember.get('App.Article.attributes').keys.list,
+      record: this.modelFor('article').record
+    };
+  }
+});

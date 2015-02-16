@@ -31,7 +31,11 @@ App.ArticleFormController = Ember.ObjectController.extend( App.ImageSelectorMixi
   },
 
   defaultHeaderImage: function() {
-    return App.get('configs.client.publicVars.blogArticlesBg');
+    if (App.get('configs.client.publicVars.showDefaultArticleImage')) {
+      url = App.get('configs.client.publicVars.blogArticlesBg');  
+    } else {
+      return '';
+    }
   }.property('App.configs.client.publicVars.blogArticlesBg'),
 
   actions: {
