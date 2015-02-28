@@ -42,7 +42,7 @@ App.ArticlesIndexRoute = Ember.Route.extend(App.ResetScrollMixin, {
     query.sort = params.sort;
 
     return query;
-  }  
+  }
 });
 
 App.ArticlesCreateRoute = Ember.Route.extend(App.ResetScrollMixin, App.AuthenticatedRouteMixin, {
@@ -66,16 +66,16 @@ App.ArticlesCreateRoute = Ember.Route.extend(App.ResetScrollMixin, App.Authentic
 
 App.ArticleRoute = Ember.Route.extend(App.ResetScrollMixin, {
   model: function (params) {
-    return {
+    return Ember.RSVP.hash({
       record: this.get('store').find('article', params.id)
-    };
+    });
   }
 });
 
 App.ArticleEditRoute = Ember.Route.extend(App.ResetScrollMixin, App.AuthenticatedRouteMixin, {
   model: function (params) {
-    return {
+    return Ember.RSVP.hash({
       record: this.modelFor('article').record
-    };
+    });
   }
 });

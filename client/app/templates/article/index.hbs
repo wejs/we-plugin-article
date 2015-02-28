@@ -18,15 +18,12 @@
     </div>
   </div>
 </header>
-
-{{#if record.isFulfilled}}
   <!-- Post Content -->
   <article>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           {{#if record.id}}
-
             {{#can 'article_update' 'article' 'record'}}
               {{#link-to 'article.edit' record.id classNames="btn btn-primary"}}
                 Edit
@@ -81,6 +78,3 @@
       </div>
     </div>
   </article>
-{{else}}
-  Loading ...
-{{/if}}

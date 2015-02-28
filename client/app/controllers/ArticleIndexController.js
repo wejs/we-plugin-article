@@ -17,5 +17,21 @@ App.ArticleIndexController = Ember.ObjectController.extend({
       } 
     }
     return 'background-image: url("' + url + '")';
-  }.property('App.configs.client.publicVars.blogArticlesBg', 'record.featuredImage.urls')
+  }.property('App.configs.client.publicVars.blogArticlesBg', 'record.featuredImage.urls'),
+
+  isLoading: false,
+
+  actions: {
+    deleteRecord: function() {
+      if (confirm(Ember.I18n.t('article.item.delete.cofirm'))) {
+        var self = this;
+        self.set('isLoading', true);
+
+        this.get('record').destroyRecord().then(function() {
+          self.set('isLoading', false);
+          self.transitionToRoute('articles');
+        });
+      }
+    }
+  }
 });
