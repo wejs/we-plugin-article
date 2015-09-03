@@ -1,0 +1,19 @@
+{
+  "form-article-title": "Title",
+  "form-placeholder-article-title": " ",
+  "form-helper-article-title": " ",
+  "form-article-about": "About",
+  "form-helper-article-about": "A small text about your article",
+  "form-placeholder-article-about": " ",
+  "form-article-body": "Body",
+  "form-helper-article-body": "Write your article here",
+  "form-article-tags": "Tags",
+  "form-helper-article-tags": " ",
+  "form-article-category": "Category",
+  "form-helper-article-category": " ",
+  "form-article-featuredImage": "Featured image",
+  "form-helper-article-featuredImage": " ",
+  "article.delete.confirm.msg": "Are you sure you want to delete this article? \n You can not undo this action",
+  "article.find.empty": "No articles published found",
+  "article.create": "Create article"
+}
