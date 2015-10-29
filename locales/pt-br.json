@@ -1,0 +1,23 @@
+{
+  "form-article-title": "Título",
+  "form-placeholder-article-title": " ",
+  "form-helper-article-title": " ",
+  "form-article-about": "Sobre",
+  "form-helper-article-about": "Uma descrição sobre o seu artigo",
+  "form-placeholder-article-about": " ",
+  "form-article-body": "Texto",
+  "form-helper-article-body": "Escreva o seu artigo aqui",
+  "form-article-tags": "Tags",
+  "form-helper-article-tags": " ",
+  "form-article-category": "Categoria",
+  "form-helper-article-category": " ",
+  "form-article-featuredImage": "Imagem de destaque",
+  "form-helper-article-featuredImage": " ",
+  "article.delete.confirm.msg": "Você tem certeza que deseja deletar esse artigo? Essa ação não pode ser desfeita",
+  "article.find": "Artigos",
+  "article.find.empty": "Nenhum artigo publicado",
+  "article.create": "Criar artigo",
+  "Posted by": "Autor ",
+  "on": "em",
+  "articles": "artigos"
+}

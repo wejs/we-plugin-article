@@ -68,8 +68,19 @@ module.exports = function articleModel(we) {
         images: { formFieldMultiple: true }
       },
 
+
       // Class methods for use with: we.db.models.[yourmodel].[method]
-      classMethods: {},
+      classMethods: {
+        // suport to we.js url alias feature
+        urlAlias: function urlAlias(record) {
+          return {
+            alias: '/'+ we.i18n.__('articles') +'/' + record.id + '-'+  we.utils
+              .string( record.title ).slugify().s,
+            target: '/article/' + record.id,
+          }
+        }
+
+      },
       // record method for use with record.[method]
       instanceMethods: {},
       // Sequelize hooks

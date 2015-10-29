@@ -14,6 +14,10 @@
   "form-article-featuredImage": "Featured image",
   "form-helper-article-featuredImage": " ",
   "article.delete.confirm.msg": "Are you sure you want to delete this article? \n You can not undo this action",
+  "article.find": "Articles",
   "article.find.empty": "No articles published found",
-  "article.create": "Create article"
+  "article.create": "Create article",
+  "Posted by": "Posted by",
+  "on": "on",
+  "articles": "articles"
 }
