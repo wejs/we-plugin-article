@@ -1,0 +1,13 @@
+<div class="post-preview">
+  {{#link-to-record record=record}}
+    <h2 class="post-title">{{record.title}}</h2>
+    <h3 class="post-subtitle">{{record.about}}</h3>
+  {{/link-to-record}}
+  {{#if record.creator}}
+    <p class="post-meta">{{t 'Posted by'}}
+    {{#link-to-record record=record.creator}} {{record.creator.displayName}} {{/link-to-record}}
+    {{t 'on'}} {{we-date record.createdAt locals=locals}}
+    {{#if record.category}}{{#each record.category}}<small>- {{this}}</small>{{/each}}{{/if}}
+    </p>
+  {{/if}}
+</div>
