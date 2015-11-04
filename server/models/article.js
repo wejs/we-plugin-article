@@ -68,6 +68,9 @@ module.exports = function articleModel(we) {
         images: { formFieldMultiple: true }
       },
 
+      fileFields: {
+        attachment: { formFieldMultiple: true }
+      },
 
       // Class methods for use with: we.db.models.[yourmodel].[method]
       classMethods: {
