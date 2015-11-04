@@ -19,5 +19,11 @@
   "article.create": "Create article",
   "Posted by": "Posted by",
   "on": "on",
-  "articles": "articles"
+  "articles": "articles",
+  "form-article-images": "Image galery",
+  "form-helper-article-images": "Select one or more images to save in image galery",
+  "form-placeholder-article-images": " ",
+  "form-article-attachment": "File attachments",
+  "form-helper-article-attachment": "Select one or more files",
+  "form-placeholder-article-attachment": " "
 }

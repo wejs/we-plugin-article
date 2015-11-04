@@ -19,5 +19,11 @@
   "article.create": "Criar artigo",
   "Posted by": "Autor ",
   "on": "em",
-  "articles": "artigos"
+  "articles": "artigos",
+  "form-article-images": "Galeria de imagens",
+  "form-helper-article-images": "Selecione as imagens para salvar na galeria de imagens",
+  "form-placeholder-article-images": " ",
+  "form-article-attachment": "Arquivos anexos",
+  "form-helper-article-attachment": "Selecione um ou mais arquivos no campo acima para salvar no artigo",
+  "form-placeholder-article-attachment": " "
 }
