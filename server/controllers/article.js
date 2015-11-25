@@ -10,8 +10,6 @@ module.exports = {
       req.query.published = false;
     }
 
-    console.log('>>', req.query);
-
     return res.locals.Model.findAndCountAll(res.locals.query)
     .then(function (record) {
       res.locals.metadata.count = record.count;
