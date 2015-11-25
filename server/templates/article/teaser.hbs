@@ -1,6 +1,8 @@
-<div class="post-preview">
+<div class="post-preview {{#unless record.published}}unpublished{{/unless}}">
   {{#link-to-record record=record}}
-    <h2 class="post-title">{{record.title}}</h2>
+    <h2 class="post-title">
+      {{record.title}} {{#unless record.published}} <small><span class="label label-warning">{{t 'article.unpublished'}}</span></small> {{/unless}}
+    </h2>
     <h3 class="post-subtitle">{{record.about}}</h3>
   {{/link-to-record}}
   {{#if record.creator}}

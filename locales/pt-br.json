@@ -25,5 +25,10 @@
   "form-placeholder-article-images": " ",
   "form-article-attachment": "Arquivos anexos",
   "form-helper-article-attachment": "Selecione um ou mais arquivos no campo acima para salvar no artigo",
-  "form-placeholder-article-attachment": " "
+  "form-placeholder-article-attachment": " ",
+  "article.published.btn.unpublish": "Despublicar",
+  "article.published.btn.publish": "Publicar",
+  "form-article-published": "publicado",
+  "article.unpublished": "despublicado",
+  "article.published": "publicado"
 }
