@@ -7,7 +7,7 @@
 module.exports = {
   find: function findAll(req, res) {
     if (!req.we.acl.canStatic('access_articles_unpublished', req.userRoleNames)) {
-      res.locals.query.where.published = false;
+      res.locals.query.where.published = true;
     }
 
     return res.locals.Model.findAndCountAll(res.locals.query)
