@@ -8,6 +8,11 @@ module.exports = function(we) {
   return function helper() {
     var options = arguments[arguments.length-1];
 
+    // check if can update the article
+    if (!we.acl.canStatic('update_article', options.hash.req.userRoleNames)){
+      return '';
+    }
+
     var url = '/article/'+options.hash.record.id+'/edit?redirectTo='+
       options.hash.req.url;
 
