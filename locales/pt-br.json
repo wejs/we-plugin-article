@@ -30,5 +30,8 @@
   "article.published.btn.publish": "Publicar",
   "form-article-published": "publicado",
   "article.unpublished": "despublicado",
-  "article.published": "publicado"
+  "article.published": "publicado",
+  "form-article-setAlias": "URL do conteúdo",
+  "form-placeholder-article-setAlias": " ",
+  "form-helper-article-setAlias": "Digite uma url interna para acessar o seu conteúdo ou deixe o campo vazio para usar a url padrão. Exemplo: /incrivel-conteudo"
 }

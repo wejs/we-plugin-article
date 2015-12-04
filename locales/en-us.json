@@ -30,5 +30,8 @@
   "article.published.btn.publish": "Publish",
   "form-article-published": "published",
   "article.unpublished": "unpublished",
-  "article.published": "published"
+  "article.published": "published",
+  "form-article-setAlias": "URL alias",
+  "form-placeholder-article-setAlias": " ",
+  "form-helper-article-setAlias": "Write an internal path for your record or leave empty for use default urls. Example: /awesome/url"
 }
