@@ -33,5 +33,11 @@
   "article.published": "published",
   "form-article-setAlias": "URL alias",
   "form-placeholder-article-setAlias": " ",
-  "form-helper-article-setAlias": "Write an internal path for your record or leave empty for use default urls. Example: /awesome/url"
+  "form-helper-article-setAlias": "Write an internal path for your record or leave empty for use default urls. Example: /awesome/url",
+  "form-article-updatedAt": "Updated at:",
+  "form-placeholder-article-updatedAt": " ",
+  "form-helper-article-updatedAt": "Article updated at date",
+  "form-article-createdAt": "Created at:",
+  "form-placeholder-article-createdAt": " ",
+  "form-helper-article-createdAt": "Article created at date"
 }
