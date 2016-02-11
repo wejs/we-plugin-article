@@ -35,7 +35,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
   plugin.events.on('we:after:load:plugins', function (we) {
     we.router.metatag.add('articleFindOne', function metatagArticleFindOne(req, res, next) {
 
-      var hostname = req.we.config.hostname;
+      var hostname = we.config.hostname;
 
       res.locals.metatag +=
         '<meta property="og:url" content="'+hostname+req.urlBeforeAlias+'" />'+
@@ -44,7 +44,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
         '<meta property="og:type" content="profile" />';
 
         if (res.locals.data.about) {
-          var description = req.we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
+          var description = we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
           res.locals.metatag += '<meta property="og:description" content="'+
             description+
           '" />';
@@ -55,10 +55,10 @@ module.exports = function loadPlugin(projectPath, Plugin) {
           var img = res.locals.data.featuredImage[0];
 
           res.locals.metatag +=
-            '<meta property="og:image" content="'+hostname+img.urls.large+'" />'+
+            '<meta property="og:image" content="'+img.urls.large+'" />'+
             '<meta property="og:image:type" content="'+img.mime+'" />'+
-            '<meta property="og:image:width" content="'+img.width+'" />'+
-            '<meta property="og:image:height" content="'+img.height+'" />';
+            '<meta property="og:image:width" content="'+we.config.upload.image.styles.large.width+'" />'+
+            '<meta property="og:image:height" content="'+we.config.upload.image.styles.large.height+'" />';
         }
 
         if (res.locals.data.tags && res.locals.data.tags.length) {
