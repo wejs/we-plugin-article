@@ -34,6 +34,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
 
   plugin.events.on('we:after:load:plugins', function (we) {
     we.router.metatag.add('articleFindOne', function metatagArticleFindOne(req, res, next) {
+      if (!res.locals.data) return next();
 
       var hostname = we.config.hostname;
 
