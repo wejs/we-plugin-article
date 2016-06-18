@@ -1,9 +1,10 @@
 {
   "name": "we-plugin-article",
   "description": "We.js plugin article",
-  "version": "0.3.14",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "plugin.js",
+  "author": "Alberto Souza <contato@albertosouza.net>",
   "engines": {
     "node": ">=0.10.0"
   },
