@@ -33,42 +33,44 @@ module.exports = function loadPlugin(projectPath, Plugin) {
   });
 
   plugin.events.on('we:after:load:plugins', function (we) {
-    we.router.metatag.add('articleFindOne', function metatagArticleFindOne(req, res, next) {
-      if (!res.locals.data) return next();
+    if (we.router.metatag) {
+      we.router.metatag.add('articleFindOne', function metatagArticleFindOne(req, res, next) {
+        if (!res.locals.data) return next();
 
-      var hostname = we.config.hostname;
+        var hostname = we.config.hostname;
 
-      res.locals.metatag +=
-        '<meta property="og:url" content="'+hostname+req.urlBeforeAlias+'" />'+
-        '<meta property="og:title" content="'+res.locals.title+'" />' +
-        '<meta property="og:site_name" content="'+res.locals.appName+'" />'+
-        '<meta property="og:type" content="profile" />';
+        res.locals.metatag +=
+          '<meta property="og:url" content="'+hostname+req.urlBeforeAlias+'" />'+
+          '<meta property="og:title" content="'+res.locals.title+'" />' +
+          '<meta property="og:site_name" content="'+res.locals.appName+'" />'+
+          '<meta property="og:type" content="profile" />';
 
-        if (res.locals.data.about) {
-          var description = we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
-          res.locals.metatag += '<meta property="og:description" content="'+
-            description+
-          '" />';
-          res.locals.metatag += '<meta content="'+description+'" name="description">'
-        }
+          if (res.locals.data.about) {
+            var description = we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
+            res.locals.metatag += '<meta property="og:description" content="'+
+              description+
+            '" />';
+            res.locals.metatag += '<meta content="'+description+'" name="description">'
+          }
 
-        if (res.locals.data.featuredImage && res.locals.data.featuredImage[0]) {
-          var img = res.locals.data.featuredImage[0];
+          if (res.locals.data.featuredImage && res.locals.data.featuredImage[0]) {
+            var img = res.locals.data.featuredImage[0];
 
-          res.locals.metatag +=
-            '<meta property="og:image" content="'+img.urls.large+'" />'+
-            '<meta property="og:image:type" content="'+img.mime+'" />'+
-            '<meta property="og:image:width" content="'+we.config.upload.image.styles.large.width+'" />'+
-            '<meta property="og:image:height" content="'+we.config.upload.image.styles.large.height+'" />';
-        }
+            res.locals.metatag +=
+              '<meta property="og:image" content="'+img.urls.large+'" />'+
+              '<meta property="og:image:type" content="'+img.mime+'" />'+
+              '<meta property="og:image:width" content="'+we.config.upload.image.styles.large.width+'" />'+
+              '<meta property="og:image:height" content="'+we.config.upload.image.styles.large.height+'" />';
+          }
 
-        if (res.locals.data.tags && res.locals.data.tags.length) {
-          res.locals.metatag +=
-            '<meta name="keywords" content="'+res.locals.data.tags.join(',')+'" />';
-        }
+          if (res.locals.data.tags && res.locals.data.tags.length) {
+            res.locals.metatag +=
+              '<meta name="keywords" content="'+res.locals.data.tags.join(',')+'" />';
+          }
 
-      next();
-    });
+        next();
+      });
+    }
   });
 
   return plugin;

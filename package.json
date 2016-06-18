@@ -3,21 +3,19 @@
   "description": "We.js plugin article",
   "version": "0.3.14",
   "license": "MIT",
-  "main": "lib/index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "main": "plugin.js",
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {},
+  "repository": "wejs/we-plugin-article",
   "keywords": [
-    "we.js",
-    "wejs",
-    "plugin",
+    "wejs-plugin",
     "article"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:wejs/we-plugin-article.git"
+  "wejs": {
+    "dependencies": {
+      "we-plugin-user": true
+    }
   }
 }

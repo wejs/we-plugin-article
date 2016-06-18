@@ -1,16 +1,12 @@
-# We.js plugin we-plugin-article
+# We.js article plugin
+
+Add the article resource in one we.js project with suport to publish and metatags
 
 ## Instalation
-TODO
-
-## Controllers
-TODO
-
-## Models
-TODO
-
-## Plugin configs
-TODO
+ 
+```sh
+we i we-plugin-article
+```
 
 ## License and credits
 
