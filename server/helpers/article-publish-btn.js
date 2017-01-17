@@ -6,17 +6,17 @@
 
 module.exports = function(we) {
   return function helper() {
-    var options = arguments[arguments.length-1];
+    const options = arguments[arguments.length-1];
 
     // check if can update the article
     if (!we.acl.canStatic('update_article', options.hash.req.userRoleNames)){
       return '';
     }
 
-    var url = '/article/'+options.hash.record.id+'/edit?redirectTo='+
+    let url = '/article/'+options.hash.record.id+'/edit?redirectTo='+
       options.hash.req.url;
 
-    var html = '<form class="form-inline publish-btn-form" action="'+url+'" method="POST">';
+    let html = '<form class="form-inline publish-btn-form" action="'+url+'" method="POST">';
 
     if (options.hash.record.published) {
       html += '<input name="published" type="hidden" value="false">'+
@@ -32,5 +32,5 @@ module.exports = function(we) {
 
     html += '</form>';
     return  new we.hbs.SafeString(html);
-  }
-}
+  };
+};

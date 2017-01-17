@@ -1,13 +1,12 @@
 /**
- * article
+ * Article model
  *
  * @module      :: Model
  * @description :: article model
- *
  */
 
 module.exports = function articleModel(we) {
-  var model = {
+  const model = {
     // define you model here
     // see http://docs.sequelizejs.com/en/latest/docs/models-definition
     definition: {
@@ -75,12 +74,12 @@ module.exports = function articleModel(we) {
       // Class methods for use with: we.db.models.[yourmodel].[method]
       classMethods: {
         // suport to we.js url alias feature
-        urlAlias: function urlAlias(record) {
+        urlAlias(record) {
           return {
             alias: '/'+ we.i18n.__('articles') +'/' + record.id + '-'+  we.utils
               .string( record.title ).slugify().s,
             target: '/article/' + record.id,
-          }
+          };
         }
 
       },

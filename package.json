@@ -1,15 +1,15 @@
 {
   "name": "we-plugin-article",
-  "description": "We.js plugin article",
+  "description": "We.js plugin with blog article features",
   "version": "1.0.0",
-  "license": "MIT",
   "main": "plugin.js",
-  "author": "Alberto Souza <contato@albertosouza.net>",
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {},
   "repository": "wejs/we-plugin-article",
+  "author": "Alberto Souza <contato@albertosouza.net>",
+  "license": "MIT",
   "keywords": [
     "wejs-plugin",
     "article"

@@ -1,9 +1,9 @@
 /**
- * We.js article plugin config
+ * We.js article plugin main file
  */
 
 module.exports = function loadPlugin(projectPath, Plugin) {
-  var plugin = new Plugin(__dirname);
+  const plugin = new Plugin(__dirname);
 
   plugin.setConfigs({
     perissions: {
@@ -37,7 +37,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       we.router.metatag.add('articleFindOne', function metatagArticleFindOne(req, res, next) {
         if (!res.locals.data) return next();
 
-        var hostname = we.config.hostname;
+        const hostname = we.config.hostname;
 
         res.locals.metatag +=
           '<meta property="og:url" content="'+hostname+req.urlBeforeAlias+'" />'+
@@ -46,15 +46,15 @@ module.exports = function loadPlugin(projectPath, Plugin) {
           '<meta property="og:type" content="profile" />';
 
           if (res.locals.data.about) {
-            var description = we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
+            const description = we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
             res.locals.metatag += '<meta property="og:description" content="'+
               description+
             '" />';
-            res.locals.metatag += '<meta content="'+description+'" name="description">'
+            res.locals.metatag += '<meta content="'+description+'" name="description">';
           }
 
           if (res.locals.data.featuredImage && res.locals.data.featuredImage[0]) {
-            var img = res.locals.data.featuredImage[0];
+            let img = res.locals.data.featuredImage[0];
 
             res.locals.metatag +=
               '<meta property="og:image" content="'+img.urls.large+'" />'+
