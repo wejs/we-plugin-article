@@ -12,7 +12,7 @@ function updates() {
       we.log.info('Start we-plugin-article update v1.1.0');
 
       const sql = 'ALTER TABLE `articles` '+
-        ' ADD COLUMN `publishedAt` TIMESTAMP DEFAULT NULL , '+
+        ' ADD COLUMN `publishedAt` TIMESTAMP NULL DEFAULT NULL, '+
         ' ADD COLUMN `highlighted` INT(11) DEFAULT "0" , '+
         ' ADD COLUMN `showInLists` TINYINT(1) DEFAULT 1 ';
       we.db.defaultConnection
