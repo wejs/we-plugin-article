@@ -7,8 +7,6 @@
 
 module.exports = function articleModel(we) {
   const model = {
-    // define you model here
-    // see http://docs.sequelizejs.com/en/latest/docs/models-definition
     definition: {
       active: {
         type: we.db.Sequelize.BOOLEAN,
@@ -20,6 +18,23 @@ module.exports = function articleModel(we) {
         defaultValue: true,
         formFieldType: null
       },
+      publishedAt: {
+        type: we.db.Sequelize.DATE,
+        formFieldType: null, // hide this field
+        allowNull: true
+      },
+      highlighted: {
+        type: we.db.Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+        formFieldType: null
+      },
+      showInLists: {
+        type: we.db.Sequelize.BOOLEAN,
+        defaultValue: true,
+        formFieldType: null
+      },
+
       title: {
         type: we.db.Sequelize.STRING,
         allowNull: false
@@ -36,8 +51,6 @@ module.exports = function articleModel(we) {
         formFieldHeight: 400
       }
     },
-    // Associations
-    // see http://docs.sequelizejs.com/en/latest/docs/associations
     associations: {
       creator: {
         type: 'belongsTo',
@@ -47,6 +60,7 @@ module.exports = function articleModel(we) {
     options: {
       // title field, for default title record pages
       titleField: 'title',
+      tableName: 'articles',
 
       termFields: {
         tags: {
@@ -81,13 +95,28 @@ module.exports = function articleModel(we) {
             target: '/article/' + record.id,
           };
         }
-
       },
-      // record method for use with record.[method]
-      instanceMethods: {},
-      // Sequelize hooks
-      // See http://docs.sequelizejs.com/en/latest/api/hooks
-      hooks: {}
+      instanceMethods: {
+        setPublishDates(record) {
+          if (record.published && !record.publishedAt) {
+            record.publishedAt = new Date();
+          }
+        }
+      },
+      hooks: {
+        beforeValidate(record) {
+          if (!record.highlighted) {
+            record.highlighted = 0;
+          }
+        },
+        beforeCreate(record) {
+          record.setPublishDates(record);
+        },
+        beforeUpdate(record) {
+          record.setPublishDates(record);
+        },
+
+      }
     }
   };
 
