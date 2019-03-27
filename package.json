@@ -1,7 +1,7 @@
 {
   "name": "we-plugin-article",
   "description": "We.js plugin with blog article features",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "plugin.js",
   "engines": {
     "node": ">=0.10.0"
