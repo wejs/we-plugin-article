@@ -15,12 +15,15 @@ module.exports = {
 
     const Op = req.we.Op;
 
-    res.locals.query.order = [
-      ['highlighted', 'DESC'],
-      ['createdAt', 'DESC'],
-      ['publishedAt', 'DESC'],
-      ['id', 'DESC']
-    ];
+    // default sort:
+    if (!req.query.sort) {
+      res.locals.query.order = [
+        ['highlighted', 'DESC'],
+        ['publishedAt', 'DESC'],
+        ['createdAt', 'DESC'],
+        ['id', 'DESC']
+      ];
+    }
 
     if (req.query.q) {
       res.locals.query.where[Op.or] = {
