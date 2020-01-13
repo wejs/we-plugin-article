@@ -8,6 +8,14 @@ Add the article resource in one we.js project with suport to publish and metatag
 we i we-plugin-article
 ```
 
-## License and credits
+### Changelog
+
+- v2.x - Compatible with We.js v3+ 
+
+## License
 
 MIT
+
+## Sponsored by
+
+- Linky: http://linkysystems.com
