@@ -46,7 +46,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
           '<meta property="og:type" content="profile" />';
 
           if (res.locals.data.about) {
-            const description = we.utils.string(res.locals.data.about).stripTags().truncate(200).s;
+            const description = we.utils.stripTagsAndTruncate(res.locals.data.about, 200);
             res.locals.metatag += '<meta property="og:description" content="'+
               description+
             '" />';

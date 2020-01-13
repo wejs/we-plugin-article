@@ -7,7 +7,6 @@ module.exports = function (we, done) {
   ])
   .then( ()=> {
     done();
-    return null;
   })
   .catch(done);
 };
