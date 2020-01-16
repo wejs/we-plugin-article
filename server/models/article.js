@@ -89,8 +89,8 @@ module.exports = function articleModel(we) {
       classMethods: {
         // suport to we.js url alias feature
         urlAlias(record) {
-          let slugPart1 = we.utils.stripTagsAndTruncate(we.i18n.__('articles'), 30, '');
-          let slugPart2 = we.utils.stripTagsAndTruncate(record.id + '-'+ record.title, 30, '');
+          let slugPart1 = we.utils.slugifyAndTruncate(we.i18n.__('articles'), 30, '');
+          let slugPart2 = we.utils.slugifyAndTruncate(record.id + '-'+ record.title, 30, '');
 
           return {
             alias: '/'+ slugPart1 +'/' + slugPart2,
