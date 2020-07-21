@@ -57,7 +57,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
             let img = res.locals.data.featuredImage[0];
 
             res.locals.metatag +=
-              '<meta property="og:image" content="'+img.urls.large+'" />'+
+              '<meta property="og:image" content="'+ hostname + img.urls.large+'" />'+
               '<meta property="og:image:type" content="'+img.mime+'" />'+
               '<meta property="og:image:width" content="'+we.config.upload.image.styles.large.width+'" />'+
               '<meta property="og:image:height" content="'+we.config.upload.image.styles.large.height+'" />';
